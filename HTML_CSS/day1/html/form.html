@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- action에 입력한 주소로 입력값이 넘어감 -->
+    <!-- https method중 이건 GET으로 보내는 거임. 뭔지 모르겠으면 대부분 get임
+    보내는 건 보통 POST이고.   -->
+    <form action="https://google.com/search">
+        <!-- type 종류
+            - text : 텍스트 입력받기
+            - password : 패스워드 입력이라 입력값 비활성화 해줌
+            - email : 이메일형식에 맞는 입력 받아줌
+            - search : 입력받은 데이터를 x로 지울 수 있음 -->
+        <input type="search" name="q">
+        <!-- 쿼리이름을 q로 해야 구글에서 검색이 될테니까. 미리 name 지정해놓기 -->
+        <button>검색</button>
+    </form>
+
+    <hr>
+    <form action="https://httpbin.org/post" method="post">
+        <!-- 안적으면 디폴트로 GET임. 다른건 안되고 get이랑 post만 지정가능. 다른 건 js로 함 -->
+        <!-- label의 for : 누구를 위한 라벨인데? 구분은 해야지. 복잡해질수록 구분 안됨 -->
+        <!-- name : 쿼리 파라미터의 쿼리값 / id : 태그(컴포넌트) 자체에 붙여주는 이름 -->
+        <label for="newEmail">이메일</label>
+        <input id="newEmail" type="email" name="newEmail" placeholder="이메일을 입력하세요">
+        <br>
+        <label for="newEmail">비밀번호</label>
+        <input type="password" name="ㅊ" placeholder="비밀번호를 입력하세요">
+        <button>회원가입</button>
+    </form>
+</body>
+</html>
