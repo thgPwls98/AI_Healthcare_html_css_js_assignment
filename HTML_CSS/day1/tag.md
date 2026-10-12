@@ -1,4 +1,19 @@
 # HTML 기본 문법 및 주요 태그 정리
+## 0. HTML 자동 완성 (Emmet)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+```
+* VS Code 등 주요 에디터에서는 HTML 파일 생성 후 빈 문서에서 `!`를 입력하고 `Enter` 또는 `Tab`키를 누르면 HTML5 기본 문서 구조가 자동으로 생성된다.
 
 ## 1. HTML 기본 문서 구조 및 선언
 
