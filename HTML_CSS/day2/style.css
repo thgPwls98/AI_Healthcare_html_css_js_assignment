@@ -1,0 +1,957 @@
+
+/* ======================================
+   01. Color System & Global
+====================================== */
+
+:root {
+    --ivory: #F5F1EC;
+    --white: #FFFFFF;
+
+    --lavender: #DCD4E9;
+    --lavender-light: #F2EDF8;
+    --lavender-dark: #82709C;
+
+    --plum: #564969;
+    --heading: #332D3B;
+    --text: #625B68;
+    --muted: #99919F;
+
+    --border: #EAE5ED;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--ivory);
+    color: var(--text);
+
+    font-family: "Pretendard", "Noto Sans KR",
+                 -apple-system, Arial, sans-serif;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ======================================
+   02. Layout
+====================================== */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ======================================
+   03. Lavender Sidebar
+====================================== */
+
+.sidebar {
+    width: 235px;
+    height: 100vh;
+
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 48px 27px;
+
+    background-color: var(--lavender);
+    border-right: 1px solid #D1C6E0;
+}
+
+.brand {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: bold;
+
+    color: var(--plum);
+    letter-spacing: -1.5px;
+
+    margin-bottom: 65px;
+}
+
+.brand-dot {
+    color: #A28BBC;
+}
+
+.brand small {
+    display: block;
+    margin-top: 4px;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.6px;
+    color: #83758F;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 13px 15px;
+    border-radius: 8px;
+
+    color: #766985;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.side-nav a span {
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.side-nav a:hover,
+.side-nav .nav-active {
+    background-color: rgba(255, 255, 255, 0.58);
+    color: var(--plum);
+}
+
+.side-nav a:hover {
+    transform: translateX(3px);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-decoration {
+    width: 35px;
+    height: 3px;
+
+    background-color: #A28BBC;
+    border-radius: 5px;
+
+    margin-bottom: 18px;
+}
+
+.sidebar-bottom p {
+    color: #756783;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+.sidebar-bottom small {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #92859E;
+}
+
+
+/* ======================================
+   04. Main & Paper
+====================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+
+    padding: 45px 40px;
+}
+
+.resume-paper {
+    max-width: 940px;
+
+    margin: 0 auto;
+    padding: 60px 65px;
+
+    background-color: white;
+
+    border: 1px solid #ECE7E4;
+    border-radius: 14px;
+
+    box-shadow:
+        0 14px 40px rgba(69, 54, 78, 0.06);
+}
+
+
+/* ======================================
+   05. Profile
+====================================== */
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--lavender-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 16px;
+}
+
+.eyebrow-line {
+    width: 20px;
+    height: 1px;
+    background-color: #B5A5C7;
+}
+
+.profile-info h1 {
+    margin: 0;
+
+    color: var(--heading);
+    font-size: 44px;
+    font-weight: 750;
+    letter-spacing: -2px;
+}
+
+.english-name {
+    margin: 2px 0 16px;
+
+    color: #9B90A6;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    letter-spacing: 0.3px;
+}
+
+.profile-description {
+    color: #655A6F;
+    font-size: 14px;
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px 18px;
+
+    font-size: 12px;
+    font-style: normal;
+    color: #89818D;
+}
+
+.contact-info a {
+    color: var(--lavender-dark);
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.photo-frame {
+    flex-shrink: 0;
+
+    padding: 7px;
+    background-color: var(--lavender-light);
+    border-radius: 13px;
+
+    transform: rotate(2deg);
+}
+
+.photo-frame img {
+    display: block;
+
+    width: 135px;
+    height: 165px;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    transform: rotate(-2deg);
+}
+
+
+/* ======================================
+   06. Section Heading
+====================================== */
+
+.resume-section {
+    margin-top: 47px;
+    scroll-margin-top: 30px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    gap: 15px;
+    margin-bottom: 25px;
+
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--heading);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.section-heading > span {
+    color: #B3A5C4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+
+/* ======================================
+   07. Introduce
+====================================== */
+
+.intro-box {
+    padding: 28px 32px;
+
+    background-color: var(--lavender-light);
+    border-radius: 10px;
+
+    border-left: 3px solid #B8A8D0;
+}
+
+.intro-lead {
+    color: var(--plum) !important;
+    font-size: 17px !important;
+    font-weight: 700;
+
+    margin-bottom: 15px !important;
+}
+
+.intro-box p {
+    color: #756A7E;
+    font-size: 13px;
+    line-height: 1.95;
+
+    margin-bottom: 12px;
+}
+
+.intro-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ======================================
+   08. Skills
+====================================== */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 22px;
+}
+
+.skill-group h3 {
+    color: #A295AD;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+
+    margin-bottom: 12px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-list span {
+    display: inline-block;
+
+    padding: 6px 13px;
+
+    background-color: #F4F0F8;
+    color: #6E5D81;
+
+    border: 1px solid #EAE3F2;
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+.skill-list span:hover {
+    background-color: #E6DDEF;
+    color: var(--plum);
+
+    transform: translateY(-2px);
+}
+
+
+/* ======================================
+   09. Experience
+====================================== */
+
+.experience-item {
+    padding: 0 0 27px;
+    margin-bottom: 28px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.experience-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.project-number {
+    display: inline-block;
+
+    color: #A99ABC;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+
+    margin-bottom: 5px;
+}
+
+.experience-top h3 {
+    margin: 0;
+
+    color: var(--heading);
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.experience-top time {
+    color: #A39AA9;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.project-subtitle {
+    margin: 9px 0 5px;
+
+    color: #645A6C;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.project-role {
+    margin-bottom: 14px;
+
+    color: var(--lavender-dark);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-role span {
+    margin-left: 8px;
+
+    color: #A9A1AF;
+    font-weight: 400;
+}
+
+.experience-item ul {
+    margin: 0;
+    padding-left: 19px;
+
+    color: #77707C;
+    font-size: 13px;
+}
+
+.experience-item li {
+    padding: 3px 0;
+}
+
+
+/* ======================================
+   10. Education
+====================================== */
+
+.history-item {
+    display: grid;
+    grid-template-columns: 175px 1fr;
+    gap: 20px;
+
+    padding: 13px 0;
+}
+
+.history-item time {
+    color: #A39AA9;
+    font-size: 12px;
+}
+
+.history-item h3 {
+    margin: 0 0 3px;
+
+    color: var(--heading);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.history-item p {
+    margin: 0;
+
+    color: #8B8390;
+    font-size: 13px;
+}
+
+
+/* ======================================
+   11. Awards & Certifications
+====================================== */
+
+.empty-message {
+    padding: 18px 20px;
+    margin: 0;
+
+    background-color: #FAF8FC;
+    border: 1px dashed #DDD3E8;
+    border-radius: 8px;
+
+    color: #A49AAE;
+    font-size: 13px;
+}
+
+
+/* ======================================
+   12. Portfolio
+====================================== */
+
+.portfolio-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 25px 28px;
+
+    background-color: #F3EEF8;
+    border-radius: 10px;
+}
+
+.portfolio-box h3 {
+    margin-bottom: 6px;
+
+    color: var(--plum);
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.portfolio-box p {
+    margin: 0;
+
+    color: #82778D;
+    font-size: 12px;
+}
+
+.portfolio-btn {
+    flex-shrink: 0;
+
+    padding: 10px 17px;
+
+    background-color: var(--plum);
+    color: white;
+
+    border: 1px solid var(--plum);
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.portfolio-btn:hover {
+    background-color: #716081;
+    border-color: #716081;
+    color: white;
+}
+
+
+/* ======================================
+   13. Footer
+====================================== */
+
+.resume-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 55px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: #B2A8B8;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+/* ======================================
+   14. Tablet
+====================================== */
+
+@media (max-width: 950px) {
+
+    .sidebar {
+        width: 180px;
+        padding: 35px 15px;
+    }
+
+    .main-content {
+        padding: 25px 20px;
+    }
+
+    .resume-paper {
+        padding: 42px 35px;
+    }
+
+    .profile-info h1 {
+        font-size: 37px;
+    }
+
+    .photo-frame img {
+        width: 110px;
+        height: 140px;
+    }
+
+    .skills-container {
+        gap: 20px;
+    }
+
+}
+
+
+/* ======================================
+   15. Mobile
+====================================== */
+
+@media (max-width: 650px) {
+
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+
+        width: 100%;
+        height: auto;
+
+        padding: 12px 16px;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .brand {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .brand small,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .side-nav {
+        flex-direction: row;
+        gap: 2px;
+    }
+
+    .side-nav a {
+        gap: 4px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .side-nav a span {
+        display: none;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .resume-paper {
+        padding: 28px 20px;
+        border-radius: 10px;
+    }
+
+    .profile-header {
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 28px;
+    }
+
+    .profile-info h1 {
+        font-size: 32px;
+    }
+
+    .english-name {
+        font-size: 14px;
+    }
+
+    .profile-description {
+        font-size: 12px;
+    }
+
+    .eyebrow {
+        flex-wrap: wrap;
+        font-size: 9px;
+    }
+
+    .photo-frame {
+        padding: 4px;
+    }
+
+    .photo-frame img {
+        width: 75px;
+        height: 95px;
+    }
+
+    .contact-info {
+        font-size: 11px;
+        gap: 5px 10px;
+    }
+
+    .resume-section {
+        margin-top: 35px;
+        scroll-margin-top: 80px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .section-heading > span {
+        font-size: 9px;
+    }
+
+    .intro-box {
+        padding: 22px 20px;
+    }
+
+    .intro-lead {
+        font-size: 15px !important;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .experience-top {
+        display: block;
+    }
+
+    .experience-top time {
+        display: block;
+        margin-top: 6px;
+    }
+
+    .history-item {
+        grid-template-columns: 110px 1fr;
+        gap: 12px;
+    }
+
+    .portfolio-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ======================================
+   16. Print
+====================================== */
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        background: white;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .resume-paper {
+        max-width: 100%;
+        padding: 0;
+
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .resume-section,
+    .experience-item,
+    .history-item {
+        break-inside: avoid;
+    }
+
+    #portfolio {
+        display: none;
+    }
+
+    .profile-header {
+        padding-bottom: 25px;
+    }
+
+    .resume-section {
+        margin-top: 28px;
+    }
+
+}
+
+
+/* ======================================
+   Additional Profile & Resume Styling
+====================================== */
+
+/* 연락처 정렬 */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 9px;
+
+    font-size: 12px;
+}
+
+.contact-info span {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+}
+
+.contact-info strong {
+    color: #8D7CA3;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.contact-info a {
+    overflow-wrap: anywhere;
+}
+
+/* Education, Awards, Certifications, Activities */
+.history-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #F0ECF2;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item h3 {
+    line-height: 1.65;
+}
+
+.history-item p {
+    line-height: 1.7;
+}
+
+/* 항목이 많은 자격증 영역 */
+#certifications .history-item {
+    padding: 12px 0;
+}
+
+/* 화면 크기에 따른 연락처 정렬 */
+@media (max-width: 1100px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+        row-gap: 6px;
+    }
+
+    .history-item {
+        grid-template-columns: 100px 1fr;
+        gap: 10px;
+    }
+
+    .history-item h3 {
+        font-size: 13px;
+    }
+
+    .history-item time {
+        font-size: 11px;
+    }
+}
