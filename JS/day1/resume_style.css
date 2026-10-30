@@ -1,0 +1,993 @@
+
+/* ======================================
+   01. Color System & Global
+====================================== */
+
+:root {
+    --ivory: #F5F1EC;
+    --white: #FFFFFF;
+
+    --lavender: #DCD4E9;
+    --lavender-light: #F2EDF8;
+    --lavender-dark: #82709C;
+
+    --plum: #564969;
+    --heading: #332D3B;
+    --text: #625B68;
+    --muted: #99919F;
+
+    --border: #EAE5ED;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--ivory);
+    color: var(--text);
+
+    font-family: "Pretendard", "Noto Sans KR",
+                 -apple-system, Arial, sans-serif;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ======================================
+   02. Layout
+====================================== */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ======================================
+   03. Lavender Sidebar
+====================================== */
+
+.sidebar {
+    width: 235px;
+    height: 100vh;
+
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 48px 27px;
+
+    background-color: var(--lavender);
+    border-right: 1px solid #D1C6E0;
+}
+
+.brand {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: bold;
+
+    color: var(--plum);
+    letter-spacing: -1.5px;
+
+    margin-bottom: 65px;
+}
+
+.brand-dot {
+    color: #A28BBC;
+}
+
+.brand small {
+    display: block;
+    margin-top: 4px;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.6px;
+    color: #83758F;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 13px 15px;
+    border-radius: 8px;
+
+    color: #766985;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.side-nav a span {
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.side-nav a:hover,
+.side-nav .nav-active {
+    background-color: rgba(255, 255, 255, 0.58);
+    color: var(--plum);
+}
+
+.side-nav a:hover {
+    transform: translateX(3px);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-decoration {
+    width: 35px;
+    height: 3px;
+
+    background-color: #A28BBC;
+    border-radius: 5px;
+
+    margin-bottom: 18px;
+}
+
+.sidebar-bottom p {
+    color: #756783;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+.sidebar-bottom small {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #92859E;
+}
+
+
+/* ======================================
+   04. Main & Paper
+====================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+
+    padding: 45px 40px;
+}
+
+.resume-paper {
+    max-width: 940px;
+
+    margin: 0 auto;
+    padding: 60px 65px;
+
+    background-color: white;
+
+    border: 1px solid #ECE7E4;
+    border-radius: 14px;
+
+    box-shadow:
+        0 14px 40px rgba(69, 54, 78, 0.06);
+}
+
+
+/* ======================================
+   05. Profile
+====================================== */
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--lavender-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 16px;
+}
+
+.eyebrow-line {
+    width: 20px;
+    height: 1px;
+    background-color: #B5A5C7;
+}
+
+.profile-info h1 {
+    margin: 0;
+
+    color: var(--heading);
+    font-size: 44px;
+    font-weight: 750;
+    letter-spacing: -2px;
+}
+
+.english-name {
+    margin: 2px 0 16px;
+
+    color: #9B90A6;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    letter-spacing: 0.3px;
+}
+
+.profile-description {
+    color: #655A6F;
+    font-size: 14px;
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px 18px;
+
+    font-size: 12px;
+    font-style: normal;
+    color: #89818D;
+}
+
+.contact-info a {
+    color: var(--lavender-dark);
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.photo-frame {
+    flex-shrink: 0;
+
+    padding: 7px;
+    background-color: var(--lavender-light);
+    border-radius: 13px;
+
+    transform: rotate(2deg);
+}
+
+.photo-frame img {
+    display: block;
+
+    width: 135px;
+    height: 165px;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    transform: rotate(-2deg);
+}
+
+
+/* ======================================
+   06. Section Heading
+====================================== */
+
+.resume-section {
+    margin-top: 47px;
+    scroll-margin-top: 30px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    gap: 15px;
+    margin-bottom: 25px;
+
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: var(--heading);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.section-heading > span {
+    color: #B3A5C4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+
+/* ======================================
+   07. Introduce
+====================================== */
+
+.intro-box {
+    padding: 28px 32px;
+
+    background-color: var(--lavender-light);
+    border-radius: 10px;
+
+    border-left: 3px solid #B8A8D0;
+}
+
+.intro-lead {
+    color: var(--plum) !important;
+    font-size: 17px !important;
+    font-weight: 700;
+
+    margin-bottom: 15px !important;
+}
+
+.intro-box p {
+    color: #756A7E;
+    font-size: 13px;
+    line-height: 1.95;
+
+    margin-bottom: 12px;
+}
+
+.intro-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ======================================
+   08. Skills
+====================================== */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 22px;
+}
+
+.skill-group h3 {
+    color: #A295AD;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+
+    margin-bottom: 12px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-list span {
+    display: inline-block;
+
+    padding: 6px 13px;
+
+    background-color: #F4F0F8;
+    color: #6E5D81;
+
+    border: 1px solid #EAE3F2;
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: 0.25s;
+}
+
+.skill-list span:hover {
+    background-color: #E6DDEF;
+    color: var(--plum);
+
+    transform: translateY(-2px);
+}
+
+
+/* ======================================
+   09. Experience
+====================================== */
+
+.experience-item {
+    padding: 0 0 27px;
+    margin-bottom: 28px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.experience-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.project-number {
+    display: inline-block;
+
+    color: #A99ABC;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+
+    margin-bottom: 5px;
+}
+
+.experience-top h3 {
+    margin: 0;
+
+    color: var(--heading);
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.experience-top time {
+    color: #A39AA9;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.project-subtitle {
+    margin: 9px 0 5px;
+
+    color: #645A6C;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.project-role {
+    margin-bottom: 14px;
+
+    color: var(--lavender-dark);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.project-role span {
+    margin-left: 8px;
+
+    color: #A9A1AF;
+    font-weight: 400;
+}
+
+.experience-item ul {
+    margin: 0;
+    padding-left: 19px;
+
+    color: #77707C;
+    font-size: 13px;
+}
+
+.experience-item li {
+    padding: 3px 0;
+}
+
+
+/* ======================================
+   10. Education
+====================================== */
+
+.history-item {
+    display: grid;
+    grid-template-columns: 175px 1fr;
+    gap: 20px;
+
+    padding: 13px 0;
+}
+
+.history-item time {
+    color: #A39AA9;
+    font-size: 12px;
+}
+
+.history-item h3 {
+    margin: 0 0 3px;
+
+    color: var(--heading);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.history-item p {
+    margin: 0;
+
+    color: #8B8390;
+    font-size: 13px;
+}
+
+
+/* ======================================
+   11. Awards & Certifications
+====================================== */
+
+.empty-message {
+    padding: 18px 20px;
+    margin: 0;
+
+    background-color: #FAF8FC;
+    border: 1px dashed #DDD3E8;
+    border-radius: 8px;
+
+    color: #A49AAE;
+    font-size: 13px;
+}
+
+
+/* ======================================
+   12. Portfolio
+====================================== */
+
+.portfolio-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 25px 28px;
+
+    background-color: #F3EEF8;
+    border-radius: 10px;
+}
+
+.portfolio-box h3 {
+    margin-bottom: 6px;
+
+    color: var(--plum);
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.portfolio-box p {
+    margin: 0;
+
+    color: #82778D;
+    font-size: 12px;
+}
+
+.portfolio-btn {
+    flex-shrink: 0;
+
+    padding: 10px 17px;
+
+    background-color: var(--plum);
+    color: white;
+
+    border: 1px solid var(--plum);
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.portfolio-btn:hover {
+    background-color: #716081;
+    border-color: #716081;
+    color: white;
+}
+
+
+/* ======================================
+   13. Footer
+====================================== */
+
+.resume-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 55px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: #B2A8B8;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+/* ======================================
+   16. Print
+====================================== */
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        background: white;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .resume-paper {
+        max-width: 100%;
+        padding: 0;
+
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .resume-section,
+    .experience-item,
+    .history-item {
+        break-inside: avoid;
+    }
+
+    #portfolio {
+        display: none;
+    }
+
+    .profile-header {
+        padding-bottom: 25px;
+    }
+
+    .resume-section {
+        margin-top: 28px;
+    }
+
+}
+
+
+/* ======================================
+   Additional Profile & Resume Styling
+====================================== */
+
+/* 연락처 정렬 */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 9px;
+
+    font-size: 12px;
+}
+
+.contact-info span {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+}
+
+.contact-info strong {
+    color: #8D7CA3;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.contact-info a {
+    overflow-wrap: anywhere;
+}
+
+/* Education, Awards, Certifications, Activities */
+.history-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #F0ECF2;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item h3 {
+    line-height: 1.65;
+}
+
+.history-item p {
+    line-height: 1.7;
+}
+
+/* 항목이 많은 자격증 영역 */
+#certifications .history-item {
+    padding: 12px 0;
+}
+
+/* 화면 크기에 따른 연락처 정렬 */
+@media (max-width: 1100px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .contact-info {
+        grid-template-columns: 1fr;
+        row-gap: 6px;
+    }
+
+    .history-item {
+        grid-template-columns: 100px 1fr;
+        gap: 10px;
+    }
+
+    .history-item h3 {
+        font-size: 13px;
+    }
+
+    .history-item time {
+        font-size: 11px;
+    }
+}
+
+/* JS Day 1: CSS Grid + Bootstrap 반응형 레이아웃 */
+p { margin: 0 0 1rem; }
+h3 { margin: 0 0 .5rem; }
+img { max-width: 100%; }
+
+:focus-visible { outline: 3px solid var(--plum); outline-offset: 4px; }
+.skip-link {
+    position: fixed; top: 8px; left: 8px; z-index: 200;
+    padding: 10px 16px; background: white; color: var(--plum);
+    transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* minmax(0, 1fr)은 긴 내용이 화면 너비를 밀어내지 않게 합니다. */
+.layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); }
+.sidebar { width: auto; overflow-y: auto; }
+.brand { margin-bottom: 28px; }
+.side-nav a { min-height: 44px; padding: 9px 12px; }
+.sidebar-bottom { padding-top: 24px; }
+.profile-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+.contact-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* 기술 영역의 열과 간격은 Bootstrap의 row / col / g-4로 구성합니다. */
+.skills-container { display: flex; gap: 0; }
+.skill-group { min-width: 0; }
+.skill-list .badge { font-weight: 500; line-height: 1.5; }
+.experience-item h3 { color: var(--heading); font-size: 20px; }
+.experience-top .date { color: #756A7E; font-size: 12px; }
+.portfolio-btn {
+    --bs-btn-bg: var(--plum);
+    --bs-btn-border-color: var(--plum);
+    --bs-btn-hover-bg: #716081;
+    --bs-btn-hover-border-color: #716081;
+    --bs-btn-active-bg: #564969;
+    --bs-btn-active-border-color: #564969;
+    display: inline-flex; align-items: center; min-height: 44px;
+}
+
+@media screen and (max-width: 1100px) {
+    .layout { grid-template-columns: 190px minmax(0, 1fr); }
+    .sidebar { padding: 30px 18px; }
+    .main-content { padding: 28px 20px; }
+    .resume-paper { padding: 40px 32px; }
+    .profile-header { gap: 24px; }
+    .photo-frame img { width: 110px; height: 140px; }
+    .contact-info { grid-template-columns: 1fr; }
+}
+
+/* 태블릿에서는 메뉴가 위로 이동하고 본문은 한 열을 사용합니다. */
+@media screen and (max-width: 800px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .sidebar {
+        height: auto; padding: 10px 16px; z-index: 100; overflow: visible;
+        gap: 6px; border-right: 0; border-bottom: 1px solid #D1C6E0;
+    }
+    .brand { margin: 0; font-size: 24px; line-height: 1.2; }
+    .brand small, .sidebar-bottom { display: none; }
+    .side-nav { flex-direction: row; gap: 4px; overflow-x: auto; padding: 4px; min-width: 0; }
+    .side-nav a { flex: 0 0 auto; padding: 8px 12px; font-size: 12px; }
+    .side-nav a span { display: none; }
+    .side-nav a:hover { transform: none; }
+    #resume, .resume-section { scroll-margin-top: 120px; }
+    .main-content { padding: 20px; }
+    .profile-info h1 { font-size: 36px; }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content { padding: 12px; }
+    .resume-paper { padding: 28px 20px; border-radius: 10px; }
+    .profile-header { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .photo-frame { grid-row: 1; justify-self: start; }
+    .photo-frame img { width: 90px; height: 115px; }
+    .eyebrow { flex-wrap: wrap; font-size: 9px; }
+    .resume-section { margin-top: 32px; }
+    .section-heading { flex-wrap: wrap; gap: 4px 12px; margin-bottom: 20px; }
+    .section-heading h2 { font-size: 23px; }
+    .intro-box { padding: 20px; }
+    .intro-lead { font-size: 15px !important; }
+    .history-item { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .experience-top { flex-wrap: wrap; gap: 4px 12px; }
+    .portfolio-box { flex-direction: column; align-items: flex-start; padding: 22px; }
+    .resume-footer { flex-wrap: wrap; }
+}
+
+@media print {
+    .layout { display: block; }
+    .skip-link { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+}
+
+/* 각 섹션을 독립된 카드로 배치합니다. */
+.resume-paper {
+    max-width: 1240px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+.profile-header.card,
+.resume-section.card {
+    padding: 30px;
+    background: var(--white);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(69, 54, 78, .06);
+    min-width: 0;
+}
+.profile-header.card {
+    display: grid;
+    margin-bottom: 24px;
+    border-top: 4px solid #B8A8D0;
+}
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)));
+    align-items: start;
+    gap: 24px;
+}
+.resume-section.card { display: block; margin-top: 0; }
+/* 모든 섹션 카드는 같은 Grid 규칙으로 화면 너비에 맞춰 배치됩니다. */
+.section-heading { flex-wrap: wrap; gap: 6px 12px; margin-bottom: 20px; }
+.section-heading > span { white-space: normal; }
+.intro-box { padding: 22px; }
+.project-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+}
+.project-grid .experience-item {
+    padding: 24px;
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #FCFAFE;
+    min-width: 0;
+}
+.project-grid .experience-item:last-child {
+    padding: 24px;
+    border: 1px solid var(--border);
+}
+.history-item { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+.portfolio-box { flex-wrap: wrap; }
+.resume-footer { margin-top: 28px; }
+
+@media screen and (max-width: 480px) {
+    .resume-grid { gap: 16px; }
+    .profile-header.card, .resume-section.card { padding: 22px 18px; border-radius: 14px; }
+    .profile-header.card { margin-bottom: 16px; }
+    .project-grid .experience-item,
+    .project-grid .experience-item:last-child { padding: 18px; }
+    .intro-box { padding: 18px; }
+}
+@media print {
+    .resume-grid, .project-grid { display: block; }
+    .profile-header.card, .resume-section.card {
+        padding: 16px 0;
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+    }
+    .project-grid .experience-item,
+    .project-grid .experience-item:last-child { margin-bottom: 16px; }
+}
+
+/* 마우스를 올리거나 카드 안의 링크에 초점을 맞추면 살짝 떠오릅니다. */
+.profile-header.card,
+.resume-section.card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+    .profile-header.card:hover,
+    .resume-section.card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 32px rgba(69, 54, 78, .13);
+    }
+}
+.profile-header.card:focus-within,
+.resume-section.card:focus-within {
+    box-shadow: 0 14px 32px rgba(69, 54, 78, .13);
+}
+@media (prefers-reduced-motion: reduce) {
+    .profile-header.card:hover,
+    .resume-section.card:hover { transform: none; }
+}
+@media print {
+    .profile-header.card,
+    .resume-section.card { transform: none !important; box-shadow: none !important; }
+}
+
+/* Introduce와 Experience 내부 카드에만 hover 효과를 적용합니다. */
+:is(#introduce .intro-box, #experience .experience-item) {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+    :is(#introduce .intro-box, #experience .experience-item):hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 32px rgba(69, 54, 78, .13);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    :is(#introduce .intro-box, #experience .experience-item):hover {
+        transform: none;
+    }
+}
+@media print {
+    :is(#introduce .intro-box, #experience .experience-item) {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
