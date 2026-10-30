@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Pulse | 암호화폐 가격 추적기</title>
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/bootstrap.bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <a class="brand" href="./index.html"><span class="logo">◈</span> COIN PULSE</a>
+      <div class="header-right"><span class="header-label">Market overview</span><span class="live-badge"><span
+            class="badge-dot"></span> BINANCE · USDT</span></div>
+    </header>
+    <section class="intro">
+      <p class="eyebrow"><span></span> YOUR DAILY CRYPTO SNAPSHOT</p>
+      <h1>시장의 흐름을 한눈에.</h1>
+      <p class="description">실시간 가격부터 관심 코인까지, 나만의 암호화폐 보드.</p>
+      <div class="connection"><span id="status-dot" class="dot"></span><span id="status" role="status">가격을 불러오는
+          중입니다.</span><span id="updated-at"></span></div>
+    </section>
+    <section class="summary" aria-label="시장 요약">
+      <article class="card"><span class="summary-icon purple" aria-hidden="true">◈</span><span>USDT 거래쌍</span><strong
+          id="total-count">—</strong><small>실시간으로 만나는 마켓</small></article>
+      <article class="card"><span class="summary-icon green" aria-hidden="true">↗</span><span>24시간 상승</span><strong
+          id="rising-count" class="positive">—</strong><small>상승 중인 거래쌍</small></article>
+      <article class="card"><span class="summary-icon red" aria-hidden="true">↘</span><span>24시간 하락</span><strong
+          id="falling-count" class="negative">—</strong><small>하락 중인 거래쌍</small></article>
+      <article class="card"><span class="summary-icon amber" aria-hidden="true">☆</span><span>나의 관심항목</span><strong
+          id="favorite-count">0</strong><small>별표로 모아 둔 코인</small></article>
+    </section>
+    <section class="market card" aria-label="암호화폐 목록">
+      <div class="toolbar">
+        <div class="tabs nav nav-pills" aria-label="목록 선택">
+          <button type="button" class="tab nav-link active" data-tab="all" aria-pressed="true">전체보기</button>
+          <button type="button" class="tab nav-link" data-tab="favorites" aria-pressed="false">☆ 관심항목</button>
+        </div>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search"
+            placeholder="코인 검색 (예: BTC)" aria-label="암호화폐 심볼 검색" autocomplete="off"></label>
+      </div>
+      <div class="list-info">
+        <div><span id="result-count">불러오는 중…</span><span class="detail-hint">코인을 클릭해 차트를 확인하세요 ↗</span></div><label>정렬
+          <select id="sort" aria-label="암호화폐 정렬">
+            <option value="volume">거래대금순</option>
+            <option value="change">상승률순</option>
+            <option value="name">이름순</option>
+          </select></label>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">관심항목</span>★</th>
+              <th scope="col">암호화폐</th>
+              <th scope="col">현재가 <small>USDT</small></th>
+              <th scope="col">24시간 변동률</th>
+              <th scope="col">24시간 최고가</th>
+              <th scope="col">24시간 최저가</th>
+              <th scope="col">24시간 거래대금 <small>USDT</small></th>
+            </tr>
+          </thead>
+          <tbody id="coin-list"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" role="status">시장 데이터를 불러오고 있습니다…</p>
+    </section>
+    <footer><span>Binance 공개 API · 1초 간격 자동 갱신</span><span>변동률은 최근 24시간 기준입니다.</span></footer>
+    <p id="storage-message" role="status" class="storage-message"></p>
+  </main>
+  <div class="modal fade" id="coin-modal" tabindex="-1" aria-labelledby="detail-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content coin-detail">
+        <div class="modal-header">
+          <div class="detail-heading"><span id="detail-icon" class="coin-avatar" aria-hidden="true"></span>
+            <div>
+              <h2 class="modal-title" id="detail-title">암호화폐 상세</h2>
+              <p id="detail-pair" class="mb-0"></p>
+            </div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="팝업 닫기"></button>
+        </div>
+        <div class="modal-body">
+          <div class="detail-price-row">
+            <div>
+              <p class="detail-label">현재가 <span>USDT</span></p><strong id="detail-price"></strong>
+            </div><span id="detail-change" class="change"></span>
+          </div>
+          <div class="chart-toolbar">
+            <div>
+              <h3>가격 흐름</h3>
+              <p id="chart-caption">15분봉 종가 · 최근 24시간</p>
+            </div>
+            <div class="btn-group range-tabs" role="group" aria-label="차트 조회 기간"><button type="button"
+                class="btn active" data-range="day" aria-pressed="true">24시간</button><button type="button" class="btn"
+                data-range="week" aria-pressed="false">7일</button><button type="button" class="btn" data-range="month"
+                aria-pressed="false">30일</button></div>
+          </div>
+          <div class="chart-wrap" id="chart-wrap" aria-busy="false">
+            <svg id="price-chart" viewBox="0 0 720 280" role="img" aria-labelledby="chart-title chart-description"
+              hidden>
+              <title id="chart-title">가격 추이</title>
+              <desc id="chart-description"></desc>
+              <defs>
+                <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#7962e8" stop-opacity=".22" />
+                  <stop offset="100%" stop-color="#7962e8" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <g id="chart-grid"></g>
+              <path id="chart-area" fill="url(#chart-fill)" />
+              <path id="chart-line" fill="none" stroke="#7962e8" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <line id="chart-crosshair" y1="16" y2="244" stroke="#aca0df" stroke-dasharray="4" visibility="hidden" />
+              <circle id="chart-point" r="4" fill="#7962e8" stroke="white" stroke-width="2" visibility="hidden" />
+            </svg>
+            <div id="chart-status" class="chart-status" role="status">가격 이력을 불러오는 중입니다…</div>
+            <output id="chart-tooltip" class="chart-tooltip" hidden></output>
+          </div>
+          <div class="chart-meta"><span>BINANCE · 종가 기준</span><span id="chart-updated"></span></div>
+          <div class="detail-stats">
+            <div><span>24시간 최고가</span><strong id="detail-high"></strong></div>
+            <div><span>24시간 최저가</span><strong id="detail-low"></strong></div>
+            <div><span>24시간 거래대금 · USDT</span><strong id="detail-volume"></strong></div>
+          </div>
+        </div>
+        <div class="modal-footer"><span id="detail-status">현재가 · 1초 자동 갱신</span><button id="detail-favorite"
+            type="button" class="btn btn-favorite" aria-pressed="false">☆ 관심항목 추가</button></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
